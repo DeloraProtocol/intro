@@ -8,12 +8,12 @@ import { MediakitComponent } from './mediakit/mediakit.component';
 import { HowComponent } from './how it works/how.component';
 
 export const routes: Routes = [
-  { path: '', component: IntroComponent, title: 'Home | Alyra' },
-  { path: 'developers', component: DevelopersComponent, title: 'Developers | Alyra' },
-  { path: 'community', component: CommunityComponent, title: 'Community | Alyra' },
-	{ path: 'mediakit', component: MediakitComponent, title: 'Media Kit | Alyra' },
-	// { path: 'terms', component: TermsComponent, title: 'Terms of Use | Alyra' },
-	// { path: 'policy', component: PolicyComponent, title: 'Privacy Policy | Alyra' },
-	{ path: 'execution', component: HowComponent, title: 'How it works | Alyra' },
+  { path: '', component: IntroComponent, title: 'Home | Delora' },
+  { path: 'developers', component: DevelopersComponent, title: 'Developers | Delora' },
+  { path: 'community', component: CommunityComponent, title: 'Community | Delora' },
+	{ path: 'mediakit', component: MediakitComponent, title: 'Media Kit | Delora' },
+	// { path: 'terms', component: TermsComponent, title: 'Terms of Use | Delora' },
+	// { path: 'policy', component: PolicyComponent, title: 'Privacy Policy | Delora' },
+	{ path: 'execution', component: HowComponent, title: 'How it works | Delora' },
   { path: '**', redirectTo: '' }
 ];

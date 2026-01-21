@@ -7,7 +7,7 @@ export class TypingAnimationService {
   private textBlocks: HTMLElement[] = [];
   private renderer?: Renderer2;
 
-  private readonly fullText = 'AlyraLabs.';
+  private readonly fullText = 'Delora.';
   private readonly minDelay = 100;
   private readonly maxDelay = 200;
   private readonly preBlinkCount = 1;
@@ -109,7 +109,7 @@ export class TypingAnimationService {
   private startHeaderLogoTyping(): void {
     const headerLogo = document.querySelector('.header .logo p') as HTMLElement | null;
     if (!headerLogo) return;
-    const originalText = headerLogo.textContent || 'AlyraLabs.';
+    const originalText = headerLogo.textContent || 'Delora.';
     headerLogo.textContent = '';
     setTimeout(() => this.typeHeaderLogoText(headerLogo, originalText), 500);
   }

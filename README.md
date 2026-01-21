@@ -1,2 +1,2 @@
-# alyra-intro
-Introduction page for Alyra Finance
+# delora-intro
+Introduction page for Delora
