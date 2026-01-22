@@ -464,7 +464,7 @@ header{
 		}
 	}
 	.background{
-		background-image: url(/img/background/background-gradient-mediakit.png);
+		background-image: url(/img/background/background-gradient.png);
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
@@ -515,7 +515,7 @@ header{
 	}
 	.item{
 		border-radius: 5px;
-		border: 1px solid rgba(var(--white), 0.2);
+		border: none !important;
 		width: 250px;
 		height: 250px;
 		background-size: cover;
@@ -524,7 +524,7 @@ header{
 	}
 	.text-item{
 		border-radius: 5px;
-		border: 1px solid rgba(var(--white), 0.2);
+		border: none !important;
 		height: 250px;
 		aspect-ratio: 556 / 250;
 		background-size: contain;
@@ -570,6 +570,14 @@ header{
 	display: flex;
 	flex-direction: column;
 	gap: 50px;
+	.inproper1_logo
+	{
+		color: rgba(236, 105, 97);
+	}
+	.inproper_logo
+	{
+		color: white;
+	}
 	.content{
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -587,7 +595,7 @@ header{
 				background-position: center;
 				background-repeat: no-repeat;
 				border-radius: 5px;
-				border: 1px solid rgba(var(--white), 0.2);				
+				border: none !important;				
 			}
 			p{
 				width: 340px;
