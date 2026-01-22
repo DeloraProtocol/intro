@@ -767,10 +767,11 @@ header{
 	}
 	.developers-container{
 		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-columns: 1fr 1fr;
 		grid-template-rows: repeat(2, auto);
 		border-right: 1px solid rgba(var(--white), 0.2);
 		.developer{
+			min-width: 0;
 			padding: 30px 50px;
 			display: flex;
 			flex-direction: column;
