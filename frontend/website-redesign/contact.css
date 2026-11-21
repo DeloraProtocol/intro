@@ -128,8 +128,24 @@ body:has(.contact-page){padding-top:0}.contact-page{background:#f7f7f7}.contact-
 @keyframes contact-status-in { from { opacity:0; transform:scale(.8); } to { opacity:1; transform:scale(1); } }
 @media(prefers-reduced-motion:reduce) { .contact-layout .contact-submit[data-state]::before { animation:none; } }
 
-/* Ease the reset after an accepted request without changing layout. */
-.contact-fields { transition:opacity .3s ease, transform .3s ease; }
-.contact-fields.is-clearing { opacity:0; transform:translateY(-5px); }
+/* Keep the form surfaces still while their contents fade out and back in. */
+.contact-fields .contact-field input,
+.contact-fields .contact-field textarea,
+.contact-fields .business-select summary { transition:color .3s ease, border-color .2s, box-shadow .2s; }
+.contact-fields input::placeholder,
+.contact-fields textarea::placeholder { transition:color .3s ease; }
+.contact-fields .contact-group-title,
+.contact-fields .contact-consent label,
+.contact-fields .contact-consent input,
+.contact-fields .business-select summary svg { transition:opacity .3s ease; }
+.contact-fields.is-clearing .contact-field input,
+.contact-fields.is-clearing .contact-field textarea,
+.contact-fields.is-clearing .business-select summary { color:transparent; caret-color:transparent; }
+.contact-fields.is-clearing input::placeholder,
+.contact-fields.is-clearing textarea::placeholder { color:transparent; }
+.contact-fields.is-clearing .contact-group-title,
+.contact-fields.is-clearing .contact-consent label,
+.contact-fields.is-clearing .contact-consent input,
+.contact-fields.is-clearing .business-select summary svg { opacity:0; }
 .contact-submit { transition:background-color .45s ease, opacity .3s ease, transform .3s ease; }
-@media(prefers-reduced-motion:reduce) { .contact-fields, .contact-submit { transition:none; } }
+@media(prefers-reduced-motion:reduce) { .contact-fields *, .contact-fields input::placeholder, .contact-fields textarea::placeholder, .contact-submit { transition:none; } }
