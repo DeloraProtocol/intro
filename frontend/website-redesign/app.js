@@ -1,4 +1,4 @@
-if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
  document.documentElement.classList.add('js-motion');
  const scenes = document.querySelectorAll('.hero-stage, .card-stage');
  const motionObserver = new IntersectionObserver(entries => entries.forEach(entry => entry.target.classList.toggle('motion-paused', !entry.isIntersecting)), {threshold: .05});

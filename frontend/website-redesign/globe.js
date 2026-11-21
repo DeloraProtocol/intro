@@ -105,10 +105,13 @@
  }
  function start(){if(!frame&&active&&!reduced.matches)frame=requestAnimationFrame(tick)}
  fetch('earth-points.json').then(r=>r.ok?r.json():[]).then(data=>{pts=data;draw();start()}).catch(()=>draw());
- new ResizeObserver(resize).observe(canvas);
+ if ('ResizeObserver' in window) new ResizeObserver(resize).observe(canvas);
+ else window.addEventListener('resize', resize);
  if('IntersectionObserver' in window){new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;active=inView&&!document.hidden;if(active)start()},{threshold:.01}).observe(canvas)}
  document.addEventListener('visibilitychange',()=>{active=inView&&!document.hidden;if(active)start()});
- reduced.addEventListener('change',()=>{if(reduced.matches){routes=[];last=0}else nextRoute=elapsed+400;draw();start()});
+ const onMotionChange=()=>{if(reduced.matches){routes=[];last=0}else nextRoute=elapsed+400;draw();start()};
+ if (reduced.addEventListener) reduced.addEventListener('change',onMotionChange);
+ else if (reduced.addListener) reduced.addListener(onMotionChange);
  resize();
 })();
 

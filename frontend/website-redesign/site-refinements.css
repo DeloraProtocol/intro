@@ -50,3 +50,35 @@
 .pricing-table tbody .pricing-category td:last-child { background:#171717; border:0; padding:0; }
 .pricing-table tbody .pricing-category th[scope="row"] { padding:13px 28px; }
 @media(max-width:700px) { .pricing-table tbody .pricing-category th[scope="row"] { padding:12px 18px; } }
+
+/* Remove the browser's touch flash while retaining keyboard focus indicators. */
+a, button, summary, label, [role="button"], input, select, textarea {
+ -webkit-tap-highlight-color: transparent;
+}
+
+/* Keep the complete introduction in the first small viewport. */
+@media (max-width:700px) {
+ .uc2-page .uc2-hero {
+  min-height:calc(100vh - 84px);
+  min-height:calc(100svh - 84px);
+  display:flex;
+  align-items:center;
+ }
+ .uc2-page .uc2-hero-inner { width:100%; }
+}
+
+/* A slow, soft wash adds depth without competing with the content. */
+.intro-proof .m-hero, .uc2-page .uc2-hero {
+ background-color:#fff;
+ background-image:radial-gradient(ellipse at 20% 30%, rgba(196,222,215,.42), transparent 45%),
+                  radial-gradient(ellipse at 78% 72%, rgba(208,218,235,.4), transparent 45%);
+ background-size:140% 140%, 145% 145%;
+ background-position:0% 0%, 100% 100%;
+}
+@media (prefers-reduced-motion:no-preference) {
+ .intro-proof .m-hero, .uc2-page .uc2-hero { animation:delora-hero-wash 18s ease-in-out infinite alternate; }
+ @keyframes delora-hero-wash {
+  from { background-position:0% 0%, 100% 100%; }
+  to { background-position:100% 80%, 0% 15%; }
+ }
+}
