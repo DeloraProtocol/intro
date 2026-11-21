@@ -4,6 +4,13 @@
  const error=form.querySelector('#contact-captcha-error'), widget=document.createElement('div'), retry=document.createElement('button'); area.prepend(widget); area.hidden=false; retry.type='button';retry.className='contact-retry';retry.textContent='Try again';retry.hidden=true;error.after(retry);retry.addEventListener('click',()=>{error.hidden=true;retry.hidden=true;try{window.turnstile.reset(widgetId);}catch{say('Verification is unavailable. Please email team@delora.build.');}});
  let widgetId=null, token='', last='', id='';
  const say=message=>{result.textContent=message;result.hidden=false;};
+ const clearForm=async()=>{
+  const fields=form.querySelector('.contact-fields');
+  if(!fields || !window.matchMedia || window.matchMedia('(prefers-reduced-motion: reduce)').matches){form.reset();return;}
+  fields.inert=true;fields.classList.add('is-clearing');
+  try {await new Promise(resolve=>setTimeout(resolve,300));form.reset();}
+  finally {fields.classList.remove('is-clearing');fields.inert=false;}
+ };
  const clearButtonState=()=>{if(button.dataset.state==='success'||button.dataset.state==='error'){button.dataset.state='';button.textContent='Send message';}};
  form.addEventListener('input',clearButtonState);form.addEventListener('change',clearButtonState);
  const requiredText=[form.querySelector('#contact-name'),form.querySelector('#contact-message')];
@@ -20,8 +27,8 @@
   const fingerprint=JSON.stringify(fields);if(last!==fingerprint){id=crypto.randomUUID();last=fingerprint;}
   button.disabled=true;button.dataset.state='sending';button.textContent='Sending…';result.hidden=true;
   const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),15000);let sent=false;
-  try {const res=await fetch(form.dataset.leadEndpoint,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({...fields,id,token}),signal:controller.signal});const body=await res.json();if(!res.ok||!body.ok)throw Error();sent=true;form.reset();id='';last='';say('Thanks for getting in touch. We’ll be in touch soon.');}
+  try {const res=await fetch(form.dataset.leadEndpoint,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({...fields,id,token}),signal:controller.signal});const body=await res.json();if(!res.ok||!body.ok)throw Error();sent=true;await clearForm();id='';last='';say('Thanks for getting in touch. We’ll be in touch soon.');}
   catch {say('We couldn’t confirm your message was sent. Please try again or email team@delora.build.');}
-  finally {clearTimeout(timer);button.dataset.state=sent?'success':'error';button.textContent=sent?'Sent':'Try again';token='';try{window.turnstile.reset(widgetId);}catch{button.disabled=true;error.textContent=sent?'To send another message, reload this page or email team@delora.build.':'Please reload this page or email team@delora.build.';error.hidden=false;}}
+  finally {clearTimeout(timer);button.dataset.state=sent?'success':'error';button.textContent=sent?'Sent':'Try again';if(button.animate && !window.matchMedia?.('(prefers-reduced-motion: reduce)').matches)button.animate([{opacity:.82,transform:'scale(.99)'},{opacity:1,transform:'scale(1)'}],{duration:420,easing:'ease-out'});token='';try{window.turnstile.reset(widgetId);}catch{button.disabled=true;error.textContent=sent?'To send another message, reload this page or email team@delora.build.':'Please reload this page or email team@delora.build.';error.hidden=false;}}
  });
 })();
