@@ -3,7 +3,7 @@
 .site-footer .footer-nav > div { min-width:0; }
 .site-footer .footer-nav a { overflow-wrap:anywhere; }
 @media (max-width:800px) { .site-footer .footer-nav { grid-template-columns:repeat(4,minmax(0,1fr)); } }
-@media (max-width:700px) { .site-footer .footer-nav { grid-template-columns:repeat(2,minmax(0,1fr)); gap:38px 24px; } }
+@media (max-width:700.999px) { .site-footer .footer-nav { grid-template-columns:repeat(2,minmax(0,1fr)); gap:38px 24px; } }
 .faq-answer a, .document-body a { text-decoration-skip-ink:none; text-underline-offset:.16em; }
 .faq-section.faq-motion-ready .faq-list summary span::after { transition:transform 140ms cubic-bezier(.22,1,.36,1); }
 .faq-section.faq-motion-ready .faq-list details[data-expanded="false"] summary span::after { transform:rotate(90deg); }
@@ -12,7 +12,7 @@
 .pricing-table thead th, .pricing-table thead th:first-child, .pricing-table thead th:not(:first-child), .pricing-table thead th:last-child { height:84px; padding-block:18px; }
 .pricing-table tbody td:last-child { background:#171717; color:#f5f5f5; border-color:#383838; }
 .pricing-table tbody td:last-child .compare-included { color:#f5f5f5; }
-@media(max-width:700px) { .pricing-table thead th, .pricing-table thead th:first-child, .pricing-table thead th:not(:first-child), .pricing-table thead th:last-child { height:76px; padding-block:14px; } }
+@media(max-width:700.999px) { .pricing-table thead th, .pricing-table thead th:first-child, .pricing-table thead th:not(:first-child), .pricing-table thead th:last-child { height:76px; padding-block:14px; } }
 /* A subtle shade change keeps dark actions dark on hover. */
 .header .nav-cta:hover, .pricing-action-dark:hover, .pv-button:hover, .uc2-button:hover,
 .inner-page :is(.cases-primary,.dev-button-primary,.price-cta-primary,.contact-submit):hover,
@@ -31,7 +31,7 @@
 .site-footer .footer-bottom .footer-disclosure { max-width:900px; color:#aaa; font-size:13px; line-height:1.65; }
 .pricing-table .pricing-category th { background:linear-gradient(to right,#ebebeb 70%,#171717 70%); }
 @media(max-width:1000px) { .site-footer .footer-main { grid-template-columns:1fr; gap:45px; } }
-@media(max-width:700px) {
+@media(max-width:700.999px) {
  .site-footer .footer-main { padding:52px 0 60px; gap:40px; }
  .site-footer .footer-bottom { padding-bottom:38px; }
  .pricing-table .pricing-category th { background:linear-gradient(to right,#ebebeb 69%,#171717 69%); }
@@ -49,7 +49,7 @@
 .pricing-table .pricing-category th { background:#ebebeb; border:0; }
 .pricing-table tbody .pricing-category td:last-child { background:#171717; border:0; padding:0; }
 .pricing-table tbody .pricing-category th[scope="row"] { padding:13px 28px; }
-@media(max-width:700px) { .pricing-table tbody .pricing-category th[scope="row"] { padding:12px 18px; } }
+@media(max-width:700.999px) { .pricing-table tbody .pricing-category th[scope="row"] { padding:12px 18px; } }
 
 /* Remove the browser's touch flash while retaining keyboard focus indicators. */
 a, button, summary, label, [role="button"], input, select, textarea {
@@ -57,7 +57,7 @@ a, button, summary, label, [role="button"], input, select, textarea {
 }
 
 /* Keep the complete introduction in the first small viewport. */
-@media (max-width:700px) {
+@media (max-width:700.999px) {
  .uc2-page .uc2-hero {
   min-height:calc(100vh - 84px);
   min-height:calc(100svh - 84px);
@@ -67,18 +67,108 @@ a, button, summary, label, [role="button"], input, select, textarea {
  .uc2-page .uc2-hero-inner { width:100%; }
 }
 
-/* A slow, soft wash adds depth without competing with the content. */
-.intro-proof .m-hero, .uc2-page .uc2-hero {
- background-color:#fff;
- background-image:radial-gradient(ellipse at 20% 30%, rgba(196,222,215,.42), transparent 45%),
-                  radial-gradient(ellipse at 78% 72%, rgba(208,218,235,.4), transparent 45%);
- background-size:140% 140%, 145% 145%;
- background-position:0% 0%, 100% 100%;
+/* Keep hero backgrounds neutral and free of color washes. */
+.intro-proof .m-hero, .uc2-page .uc2-hero { background:#fff; }
+/* The product illustration uses the same neutral surface as the rest of the site. */
+.pv-hero-scene { background:#f2f2f2; }
+/* Keep the product illustration close to the introduction on phones. */
+@media (max-width:700.999px) {
+ .pv-hero-copy { padding-top:clamp(32px, 5vh, 48px); padding-bottom:24px; }
+ .pv-hero { padding-bottom:40px; }
 }
-@media (prefers-reduced-motion:no-preference) {
- .intro-proof .m-hero, .uc2-page .uc2-hero { animation:delora-hero-wash 18s ease-in-out infinite alternate; }
- @keyframes delora-hero-wash {
-  from { background-position:0% 0%, 100% 100%; }
-  to { background-position:100% 80%, 0% 15%; }
+
+/* Scale the same fixed illustration on phones so its contents keep their proportions. */
+@supports (transform:scale(calc(100cqw / 1020px))) {
+ @media (max-width:700.999px) {
+  .pv-hero-scene.pv-treasury-scene { aspect-ratio:1.035; min-height:0; height:auto; }
+  .pv-scene-artboard { display:block; position:absolute; top:0; left:0; width:1020px; height:985.5px; container-type:inline-size; transform-origin:top left; transform:scale(calc(100cqw / 1020px)); }
+ .pv-treasury-scene .pv-treasury { left:20.5%; top:8.2%; width:78.5%; height:77%; }
+ .pv-treasury-scene .pv-buy-phone { left:5%; top:26.2%; width:33.5%; height:68.5%; aspect-ratio:auto; border-width:.5cqw; border-radius:4cqw; }
+ .pv-treasury-bar { height:5.7cqw; min-height:0; gap:.8cqw; padding:0 1.2cqw; }
+ .pv-treasury-app { height:calc(100% - 5.7cqw); }
+ .pv-treasury-address { height:3.7cqw; font-size:1.3cqw; }
+ .pv-treasury-sidebar { padding:2.6cqw 1.6cqw; gap:.5cqw; font-size:1.3cqw; line-height:1.5; }
+ .pv-treasury-content { padding:3cqw 3%; }
+ .product-v2-main .pv-treasury-content h2 { font-size:2.5cqw; margin-bottom:2cqw; }
+ .pv-treasury-stats { gap:1.3cqw; }
+ .pv-treasury-stats>div { padding:1.7cqw; border-radius:1.3cqw; }
+ .pv-treasury-stats span { font-size:1.15cqw; margin-bottom:1.4cqw; }
+ .pv-treasury-stats strong { font-size:1.8cqw; gap:.3cqw; }
+ .pv-treasury-stats em { font-size:1cqw; }
+ .pv-transactions { margin-top:3.5cqw; }
+ .product-v2-main .pv-transactions-heading h3 { font-size:1.65cqw; }
+ .pv-transactions-heading>span { font-size:1.2cqw; }
+ .pv-transactions-heading { margin-bottom:1.2cqw; }
+ .pv-transactions-table { padding:0 1.6cqw; border-radius:1.3cqw; }
+ .pv-transaction-row { min-height:5.4cqw; gap:.6cqw; font-size:1.15cqw; }
+ .pv-transaction-head { min-height:5cqw; }
+ .pv-transaction-asset img { width:2.4cqw; height:2.4cqw; }
+ .pv-buy-status { padding:2.3cqw 10% .4cqw; font-size:1.8cqw; }
+ .pv-phone-indicators { gap:.35cqw; }
+ .pv-phone-indicators .pv-cellular { width:2cqw; height:1.5cqw; }
+ .pv-phone-indicators .pv-wifi { width:1.7cqw; height:1.3cqw; }
+ .pv-battery { width:2.5cqw; height:1.4cqw; border-radius:.45cqw; font-size:.9cqw; }
+ .pv-battery:after { right:-.16cqw; top:.45cqw; width:.12cqw; height:.5cqw; }
+ .pv-buy-address { height:3.4cqw; font-size:1.4cqw; }
+ .pv-buy-title { margin-top:8%; font-size:2cqw; }
+ .pv-buy-amount { margin-top:16%; font-size:7.2cqw; }
+ .pv-buy-presets { gap:.8cqw; margin-top:6%; font-size:1.2cqw; }
+ .pv-buy-presets span { padding:.4cqw .9cqw; }
+ .pv-buy-method { margin-bottom:6%; font-size:1.3cqw; }
+ .pv-buy-continue { padding:1.6cqw; font-size:1.3cqw; }
+ .pv-buy-keyboard { gap:.5cqw; padding:.5cqw .6cqw 10%; }
+ .pv-buy-keyboard>span { min-height:3.8cqw; font-size:2.4cqw; }
+ .pv-buy-keyboard small { font-size:.7cqw; }
+  .pv-buy-keyboard small { display:inline; }
+ }
+}
+
+/* Older container-query browsers use a measured scale instead of typed CSS division. */
+@supports (container-type:inline-size) and (not (transform:scale(calc(100cqw / 1020px)))) {
+ @media (max-width:700.999px) {
+  html.pv-legacy-scale .pv-hero-scene.pv-treasury-scene { aspect-ratio:1.035; min-height:0; height:auto; }
+  html.pv-legacy-scale .pv-scene-artboard { display:block; position:absolute; top:0; left:0; width:1020px; height:985.5px; container-type:inline-size; transform-origin:top left; transform:scale(1); }
+  html.pv-legacy-scale .pv-treasury-scene .pv-treasury { left:20.5%; top:8.2%; width:78.5%; height:77%; }
+  html.pv-legacy-scale .pv-treasury-scene .pv-buy-phone { left:5%; top:26.2%; width:33.5%; height:68.5%; aspect-ratio:auto; border-width:.5cqw; border-radius:4cqw; }
+  html.pv-legacy-scale .pv-treasury-bar { height:5.7cqw; min-height:0; gap:.8cqw; padding:0 1.2cqw; }
+  html.pv-legacy-scale .pv-treasury-app { height:calc(100% - 5.7cqw); }
+  html.pv-legacy-scale .pv-treasury-address { height:3.7cqw; font-size:1.3cqw; }
+  html.pv-legacy-scale .pv-treasury-sidebar { padding:2.6cqw 1.6cqw; gap:.5cqw; font-size:1.3cqw; line-height:1.5; }
+  html.pv-legacy-scale .pv-treasury-content { padding:3cqw 3%; }
+  html.pv-legacy-scale .product-v2-main .pv-treasury-content h2 { font-size:2.5cqw; margin-bottom:2cqw; }
+  html.pv-legacy-scale .pv-treasury-stats { gap:1.3cqw; }
+  html.pv-legacy-scale .pv-treasury-stats>div { padding:1.7cqw; border-radius:1.3cqw; }
+  html.pv-legacy-scale .pv-treasury-stats span { font-size:1.15cqw; margin-bottom:1.4cqw; }
+  html.pv-legacy-scale .pv-treasury-stats strong { font-size:1.8cqw; gap:.3cqw; }
+  html.pv-legacy-scale .pv-treasury-stats em { font-size:1cqw; }
+  html.pv-legacy-scale .pv-transactions { margin-top:3.5cqw; }
+  html.pv-legacy-scale .product-v2-main .pv-transactions-heading h3 { font-size:1.65cqw; }
+  html.pv-legacy-scale .pv-transactions-heading>span { font-size:1.2cqw; }
+  html.pv-legacy-scale .pv-transactions-heading { margin-bottom:1.2cqw; }
+  html.pv-legacy-scale .pv-transactions-table { padding:0 1.6cqw; border-radius:1.3cqw; }
+  html.pv-legacy-scale .pv-transaction-row { min-height:5.4cqw; gap:.6cqw; font-size:1.15cqw; }
+  html.pv-legacy-scale .pv-transaction-head { min-height:5cqw; }
+  html.pv-legacy-scale .pv-transaction-asset img { width:2.4cqw; height:2.4cqw; }
+  html.pv-legacy-scale .pv-buy-status { padding:2.3cqw 10% .4cqw; font-size:1.8cqw; }
+  html.pv-legacy-scale .pv-phone-indicators { gap:.35cqw; }
+  html.pv-legacy-scale .pv-phone-indicators .pv-cellular { width:2cqw; height:1.5cqw; }
+  html.pv-legacy-scale .pv-phone-indicators .pv-wifi { width:1.7cqw; height:1.3cqw; }
+  html.pv-legacy-scale .pv-battery { width:2.5cqw; height:1.4cqw; border-radius:.45cqw; font-size:.9cqw; }
+  html.pv-legacy-scale .pv-battery:after { right:-.16cqw; top:.45cqw; width:.12cqw; height:.5cqw; }
+  html.pv-legacy-scale .pv-buy-address { height:3.4cqw; font-size:1.4cqw; }
+  html.pv-legacy-scale .pv-buy-title { margin-top:8%; font-size:2cqw; }
+  html.pv-legacy-scale .pv-buy-amount { margin-top:16%; font-size:7.2cqw; }
+  html.pv-legacy-scale .pv-buy-presets { gap:.8cqw; margin-top:6%; font-size:1.2cqw; }
+  html.pv-legacy-scale .pv-buy-presets span { padding:.4cqw .9cqw; }
+  html.pv-legacy-scale .pv-buy-method { margin-bottom:6%; font-size:1.3cqw; }
+  html.pv-legacy-scale .pv-buy-continue { padding:1.6cqw; font-size:1.3cqw; }
+  html.pv-legacy-scale .pv-buy-keyboard { gap:.5cqw; padding:.5cqw .6cqw 10%; }
+  html.pv-legacy-scale .pv-buy-keyboard>span { min-height:3.8cqw; font-size:2.4cqw; }
+  html.pv-legacy-scale .pv-buy-keyboard small { font-size:.7cqw; }
+  html.pv-legacy-scale .pv-buy-keyboard small { display:inline; }
+ }
+ @media (min-width:701px) {
+  html.pv-legacy-scale .pv-hero-scene.pv-treasury-scene { aspect-ratio:1.035; min-height:0; height:auto; align-self:center; }
+  html.pv-legacy-scale .pv-scene-artboard { display:block; position:absolute; top:0; left:0; width:1020px; height:985.5px; container-type:inline-size; transform-origin:top left; transform:scale(1); }
  }
 }

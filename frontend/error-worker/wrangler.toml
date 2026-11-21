@@ -1,0 +1,10 @@
+name = "delora-404-preview"
+main = "index.mjs"
+compatibility_date = "2026-11-21"
+compatibility_flags = ["global_fetch_private_origin"]
+workers_dev = false
+# Deliberately no routes, account ID, or deployment configuration.
+[[rules]]
+type = "Text"
+globs = ["**/*.html"]
+fallthrough = true
