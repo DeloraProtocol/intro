@@ -1,0 +1,16 @@
+/* The original pinned trust story, adapted to the product's security information. */
+.product-trust .trust-band h2,.product-trust .trust-step h3{margin:0;color:inherit;font-size:48px;font-weight:400;line-height:1.16;letter-spacing:-.025em}
+.product-trust .trust-band h2{color:#fff}
+.product-trust .trust-sticky>p{margin:32px 0 18px;color:#eee;font-size:16px;line-height:1.6}
+.product-trust .trust-sticky>a{display:inline-block;color:#fff;font-size:16px;text-decoration:underline;text-underline-offset:6px}
+.product-trust .trust-step h3{margin-bottom:10px}
+.product-trust .trust-visual[data-active="3"] .trust-art-protocols{opacity:1;transform:translate3d(-50%,-50%,0);transition-delay:.05s,0s}
+.security-scene{width:min(100%,284px);min-height:214px;margin:auto;padding:18px 22px;background:#141414;border:1px solid #313131;border-radius:9px;color:#eee;font:400 11px/1.4 Inter,Arial,sans-serif}
+.security-scene-head{display:flex;justify-content:space-between;gap:16px;padding-bottom:13px;border-bottom:1px solid #303030;color:#a8a8a8}
+.security-scene-head span:last-child{font:400 10px/1.4 monospace;color:#777}
+.security-scene-center{display:flex;flex-direction:column;align-items:center;text-align:center}
+.security-scene-center svg{display:block;width:64px;height:64px;margin:14px 0 8px;color:#eee}
+.security-scene-center strong{font-size:12px;font-weight:500}
+.security-scene-center span{margin-top:4px;color:#a6a6a6;font-size:10px}
+@media(max-width:900px){.product-trust .trust-band h2,.product-trust .trust-step h3{font-size:32px;line-height:1.16}.product-trust .trust-sticky>p{margin-top:0}}
+@media(prefers-reduced-motion:reduce){.product-trust .trust-art{transition:none}}

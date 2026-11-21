@@ -1,0 +1,28 @@
+/* Native scrolling keeps trackpad gestures responsive while softening anchor jumps. */
+@media (prefers-reduced-motion: no-preference) {
+ html { scroll-behavior: smooth; }
+}
+/* Browsers with cross-document view transitions fade between same-origin pages. */
+@view-transition { navigation: auto; }
+@media (prefers-reduced-motion: no-preference) {
+ ::view-transition-old(root) { animation: delora-page-out 160ms ease-in both; }
+ ::view-transition-new(root) { animation: delora-page-in 210ms ease-out both; }
+ @keyframes delora-page-out { to { opacity: 0; } }
+ @keyframes delora-page-in { from { opacity: 0; } }
+}
+@media (prefers-reduced-motion: reduce) {
+ html { scroll-behavior: auto !important; }
+ ::view-transition-old(root), ::view-transition-new(root) { animation: none !important; }
+}
+
+/* Product illustrations are decorative; keep surrounding content selectable. */
+:where(.uc2-visual, .pv-hero-scene, .pricing-fee-panel, .trust-visual),
+:where(.uc2-visual, .pv-hero-scene, .pricing-fee-panel, .trust-visual) * {
+ -webkit-user-select: none;
+ user-select: none;
+ -webkit-touch-callout: none;
+}
+:where(.uc2-visual, .pv-hero-scene, .pricing-fee-panel, .trust-visual) img {
+ -webkit-user-drag: none;
+}
+.metric-as-of{display:block;margin-top:6px;color:#6d6d6d;font-size:11px;line-height:1.3;font-weight:400}

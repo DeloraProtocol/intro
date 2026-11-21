@@ -1,0 +1,6 @@
+/* The full-width API flow uses the same component as Wallets. */
+.product-v2-main .case-workflow.api-flow{margin:0 -24px 70px;color:#f6f6f6}
+.product-v2-main .api-flow .container{width:min(1200px,calc(100% - 48px));margin:0 auto}
+.product-v2-main .api-flow .section-intro p{margin:24px auto 0}
+.product-v2-main .api-flow .pv-api-disclaimer{text-align:right;color:#a3a3a3;font-size:12px;margin:-32px 0 12px}
+@media(max-width:700px){.product-v2-main .case-workflow.api-flow{margin:0 -20px 60px}.product-v2-main .api-flow .container{width:calc(100% - 40px)}.product-v2-main .api-flow .pv-api-disclaimer{margin:-16px 0 12px;text-align:left}}

@@ -1,0 +1,66 @@
+/* Open, asymmetric capability grid, informed by Mural's measured layout. */
+.capabilities{background:#fff;color:#0f0f0f;padding:120px 0;scroll-margin-top:84px}.capabilities-inner{width:min(1120px,calc(100% - 48px));margin:0 auto}.capabilities h2{font-size:clamp(36px,4.1vw,52px);font-weight:400;line-height:1.16;letter-spacing:-.025em;text-align:center;margin:0 0 80px}.capabilities-rows{display:flex;flex-direction:column;gap:24px}.cap-row{display:grid;gap:24px;align-items:start}.cap-row-first{grid-template-columns:1.35fr 1fr 1fr}.cap-row-last{grid-template-columns:1fr 1fr 1.35fr}.capability{min-width:0;display:flex;flex-direction:column;gap:24px}.cap-visual{height:400px;display:grid;place-items:center;background:#f5f7f8;color:#6f6f6f;overflow:hidden;transition:background-color .35s ease,color .35s ease}.capability:hover .cap-visual{background:#eeeeee;color:#5f5f5f}.cap-art{display:block;width:220px;max-width:65%;height:auto;overflow:visible}.cap-copy{padding:0 12px}.cap-copy h3{font-size:20px;line-height:1.6;font-weight:500;letter-spacing:0;margin:0 0 4px}.cap-copy p{font-size:16px;line-height:1.6;font-weight:400;letter-spacing:0;color:#616161;margin:0;max-width:44ch}.cap-track,.cap-outline{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:.25}.cap-outline{stroke-width:2.5;opacity:.6}.cap-stroke{stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.cap-node,.cap-packet{fill:currentColor}.cap-node-muted{opacity:.28}.cap-trail{fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:11 120;opacity:.75}.cap-halo{stroke:currentColor;stroke-width:1;opacity:.12;transform-origin:center}.capability.is-active .cap-trail{animation:cap-route 5.4s linear infinite}.capability.is-active .cap-packet-horizontal{animation:cap-packet-horizontal 5.4s cubic-bezier(.45,0,.55,1) infinite}.capability.is-active .cap-pulse-one{animation:cap-pulse 5.4s ease-in-out infinite}.capability.is-active .cap-pulse-two{animation:cap-pulse 5.4s ease-in-out 1.25s infinite}.capability.is-active .cap-halo{animation:cap-halo 5.4s ease-in-out infinite}.capability.is-active .cap-code-one{animation:cap-code-left 5.4s ease-in-out infinite}.capability.is-active .cap-code-two{animation:cap-code-right 5.4s ease-in-out infinite}.capability.is-active .cap-check{animation:cap-check 5.4s ease-in-out infinite}.capability.is-paused .cap-art *{animation-play-state:paused!important}
+@keyframes cap-route{0%{stroke-dashoffset:131}60%,100%{stroke-dashoffset:-131}}@keyframes cap-packet-horizontal{0%,8%{transform:translateX(0);opacity:0}15%{opacity:1}60%{transform:translateX(130px);opacity:1}67%,100%{transform:translateX(130px);opacity:0}}@keyframes cap-pulse{0%,100%{opacity:.28}30%,55%{opacity:1}70%{opacity:.4}}@keyframes cap-halo{0%,100%{opacity:.08;transform:scale(.85)}45%{opacity:.22;transform:scale(1)}}@keyframes cap-code-left{0%,100%{transform:translateX(0)}40%,60%{transform:translateX(-5px)}}@keyframes cap-code-right{0%,100%{transform:translateX(0)}40%,60%{transform:translateX(5px)}}@keyframes cap-check{0%,20%,100%{opacity:.45}38%,75%{opacity:1}}
+@media(max-width:900px){.capabilities{padding:88px 0}.capabilities h2{font-size:40px;margin-bottom:56px}.cap-row-first,.cap-row-last{grid-template-columns:repeat(2,minmax(0,1fr))}.cap-visual{height:340px}}
+@media(max-width:600px){.capabilities{padding:72px 0}.capabilities-inner{width:calc(100% - 40px)}.capabilities h2{font-size:32px;line-height:1.2;margin-bottom:40px}.cap-row-first,.cap-row-last{grid-template-columns:1fr;gap:32px}.capabilities-rows{gap:32px}.capability{gap:16px}.cap-visual{height:280px}.cap-copy{padding:0 8px}.cap-copy h3{font-size:19px;line-height:1.5}.cap-copy p{font-size:15px}}
+@media(prefers-reduced-motion:reduce){.capability .cap-art *{animation:none!important}.cap-visual{transition:none}}
+@media(max-width:600px){.capabilities{padding:90px 0}.capabilities-inner{width:calc(100% - 32px)}.capabilities h2{margin-bottom:48px}.cap-row-first,.cap-row-last,.capabilities-rows{gap:24px}.capability{gap:0}.cap-visual{height:260px}.cap-copy{background:#f5f7f8;padding:16px 12px 20px}.cap-copy h3{font-size:20px;line-height:1.6}.cap-copy p{font-size:16px;line-height:1.6}}
+
+/* Signals travel between the shapes without permanent connector lines. */
+.cap-packet{opacity:0}
+.capability.is-active .cap-packet-up{animation:cap-packet-up 5.4s cubic-bezier(.45,0,.55,1) infinite}
+.capability.is-active .cap-packet-down{animation:cap-packet-down 5.4s cubic-bezier(.45,0,.55,1) 1.35s infinite}
+.capability.is-active .cap-packet-network{animation:cap-packet-network 5.4s cubic-bezier(.45,0,.55,1) infinite}
+.capability.is-active .cap-packet-developer{animation:cap-packet-developer 5.4s cubic-bezier(.45,0,.55,1) infinite}
+@keyframes cap-packet-up{0%,8%{transform:translate(0,0);opacity:0}16%,55%{opacity:1}62%,100%{transform:translate(110px,-37px);opacity:0}}
+@keyframes cap-packet-down{0%,8%{transform:translate(0,0);opacity:0}16%,55%{opacity:1}62%,100%{transform:translate(110px,37px);opacity:0}}
+@keyframes cap-packet-network{0%,8%{transform:translate(0,0);opacity:0}16%,55%{opacity:1}62%,100%{transform:translate(100px,60px);opacity:0}}
+@keyframes cap-packet-developer{0%,8%{transform:translate(0,0);opacity:0}16%,55%{opacity:1}62%,100%{transform:translate(124px,0);opacity:0}}
+
+/* A single signal reaches the router before splitting along the two routes. */
+.cap-2 .cap-trail{display:none}
+.capability.is-active .cap-packet-up{animation:cap-signal-up 5.4s linear infinite}
+.capability.is-active .cap-packet-down{animation:cap-signal-down 5.4s linear infinite}
+@keyframes cap-signal-up{
+  0%,8%{transform:translate(0,0);opacity:0}
+  12%{opacity:1}
+  35%,40%{transform:translate(50px,0);opacity:1}
+  72%{transform:translate(110px,-37px);opacity:1}
+  78%,100%{transform:translate(110px,-37px);opacity:0}
+}
+@keyframes cap-signal-down{
+  0%,8%{transform:translate(0,0);opacity:0}
+  12%{opacity:1}
+  35%,40%{transform:translate(50px,0);opacity:1}
+  72%{transform:translate(110px,37px);opacity:1}
+  78%,100%{transform:translate(110px,37px);opacity:0}
+}
+/* Keep the route visible and let the packet be the only moving signal. */
+.cap-1 .cap-trail{display:none}
+
+/* A consistent deep green ground makes the moving diagrams read as one family. */
+.capability .cap-visual,.capability:hover .cap-visual{background:#595959;color:#fff}
+
+/* One packet follows the connected route; its endpoints light up in sequence. */
+.cap-4 .cap-trail{display:none}
+.capability.is-active .cap-network-source{animation:network-source 5.4s ease-in-out infinite}
+.capability.is-active .cap-network-destination{animation:network-destination 5.4s ease-in-out infinite}
+.capability.is-active .cap-packet-network{animation:network-packet 5.4s linear infinite}
+@keyframes network-source{0%,6%,100%{opacity:.28}12%,20%{opacity:1}30%,95%{opacity:.28}}
+@keyframes network-destination{0%,65%,100%{opacity:.28}75%,82%{opacity:1}95%{opacity:.28}}
+@keyframes network-packet{
+ 0%,15%{transform:translate(0,0);opacity:0}
+ 16%{opacity:1}
+ 45%,49%{transform:translate(50px,30px);opacity:1}
+ 78%{transform:translate(100px,0);opacity:1}
+ 79%,100%{transform:translate(100px,0);opacity:0}
+}
+
+/* Endpoint lights follow the packets on the other routes as well. */
+.cap-6 .cap-trail{display:none}
+.cap-endpoint-source,.cap-endpoint-destination{opacity:.28}
+.capability.is-active .cap-endpoint-source{animation:network-source 5.4s ease-in-out infinite}
+.capability.is-active .cap-endpoint-destination{animation:route-destination 5.4s ease-in-out infinite}
+.capability.is-active.cap-2 .cap-endpoint-destination{animation-name:branch-destination}
+@keyframes route-destination{0%,52%,100%{opacity:.28}62%,70%{opacity:1}84%{opacity:.28}}
+@keyframes branch-destination{0%,65%,100%{opacity:.28}72%,80%{opacity:1}94%{opacity:.28}}

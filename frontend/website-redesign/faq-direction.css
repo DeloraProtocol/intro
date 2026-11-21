@@ -1,0 +1,12 @@
+/* The native disclosure remains usable without script; enhanced motion is local to the answer. */
+@supports selector(details::details-content){
+ .faq-section .faq-list details::details-content{transition:none}
+}
+.faq-section.faq-motion-ready .faq-list details[open] .faq-answer{animation:none}
+@media(prefers-reduced-motion:no-preference){
+ .faq-section:not(.faq-motion-ready) .faq-list details[open] .faq-answer{animation:faq-content-reveal .18s ease-out both}
+ @keyframes faq-content-reveal{from{opacity:0}to{opacity:1}}
+}
+@media(prefers-reduced-motion:reduce){
+ .faq-section .faq-list summary span::before,.faq-section .faq-list summary span::after{transition:none}
+}

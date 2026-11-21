@@ -1,0 +1,14 @@
+ .intro-proof { min-height: 0; }
+.intro-proof .m-hero { display:block; padding: clamp(85px, 10vw, 145px) 20px 68px; background: #fff; }
+.intro-proof .m-hero-inner { display:flex; flex-direction:column; align-items:center; text-align:center; gap:26px; width:100%; }
+.intro-proof .m-hero h1 { max-width:1000px; font-size:clamp(48px, 5.2vw, 76px); line-height:1.08; letter-spacing:-.045em; }
+.intro-proof .m-hero h1 span { color:inherit; }
+.intro-proof .m-hero-copy { align-items:center; gap:32px; padding:0; }
+.intro-proof .m-hero-copy p { color:#717d79; max-width:690px; font-size:clamp(15px, 1.15vw, 17px); line-height:1.5; }
+.intro-proof .m-progress { display:none; }
+.intro-proof .m-hero-copy .hero-actions { justify-content:center; }
+.intro-proof .m-button { background:#171717; color:#fff; border-radius:999px; padding:15px 25px; }
+@media(max-width:700px) { .intro-proof .m-hero { padding:85px 20px 55px; } .intro-proof .m-hero h1 { font-size:clamp(39px,10vw,54px); } .intro-proof .m-hero h1 br { display:none; } .intro-proof .m-hero-copy .hero-actions { flex-wrap:wrap; } }
+/* Give the metrics their own breathing room after the globe. */
+.performance { padding-top: 72px; }
+@media (max-width: 700px) { .performance { padding-top: 40px; } }

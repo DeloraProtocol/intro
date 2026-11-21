@@ -1,0 +1,9 @@
+/* Reflect the requested state immediately while the answer finishes closing. */
+.faq-section.faq-motion-ready .faq-list summary span::before,
+.faq-section.faq-motion-ready .faq-list summary span::after{transition:transform 140ms cubic-bezier(.22,1,.36,1)}
+.faq-section.faq-motion-ready .faq-list details[data-expanded="false"] summary span::after{transform:rotate(90deg)}
+.faq-section.faq-motion-ready .faq-list details[data-expanded="true"] summary span::after{transform:rotate(0)}
+@media(prefers-reduced-motion:reduce){
+ .faq-section.faq-motion-ready .faq-list summary span::before,
+ .faq-section.faq-motion-ready .faq-list summary span::after{transition:none}
+}

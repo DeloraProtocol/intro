@@ -1,0 +1,54 @@
+/* One continuous black closing surface, shared across the site. */
+.m-home .d-close,.inner-page .closing-band{background:#080808;background-image:none;color:#fff;animation:none}
+.m-home .d-close{padding:120px 0 124px}
+.m-home .d-close-inner{margin:0;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.65fr);gap:80px;align-items:end}
+.m-home .d-close h2{margin:0;max-width:650px;color:#f7f7f7;font-size:clamp(50px,5.1vw,72px);line-height:1.08;letter-spacing:-.045em;font-weight:400}
+.m-home .d-close p{max-width:360px;margin:0 0 30px;color:#aaa;font-size:17px;line-height:1.65}
+.m-home .d-close-button,.inner-page .closing-band .closing .button.primary{display:inline-flex;align-items:center;justify-content:space-between;gap:50px;min-height:52px;padding:14px 21px;border:0;border-radius:5px;background:#f4f4f4;color:#171717;font-size:14px;font-weight:500;transition:background-color .2s ease}
+.m-home .d-close-button:hover,.inner-page .closing-band .closing .button.primary:hover{background:#d9d9d9;color:#171717}
+.m-home .d-close-button:focus-visible,.inner-page .closing-band .closing .button.primary:focus-visible{outline:2px solid #fff;outline-offset:4px}
+.m-home .d-close-button span{font-size:17px;line-height:1}
+.inner-page .closing-band .closing{padding-top:105px;padding-bottom:105px}
+.inner-page .closing-band .closing h2{font-weight:400;letter-spacing:-.035em}
+.inner-page .closing-band .closing h2 span{color:#aaa}
+.inner-page .closing-band .closing>div>p,.inner-page .closing-band .closing .closing-action p{color:#aaa}
+.inner-page .closing-band .closing-action p a{color:#e8e8e8}
+.site-footer{background:#080808;background-image:none!important;animation:none!important;color:#f5f5f5;border:0;padding:0}
+.site-footer>.container,.inner-page .site-footer>.container{width:min(1200px,calc(100% - 48px));max-width:none;margin-inline:auto}
+.site-footer .footer-main{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:70px;padding:66px 0 78px;border-top:1px solid #292929}
+.site-footer .footer-brand-block{display:flex;flex-direction:column;align-items:flex-start;gap:25px}
+.site-footer .footer-brand{display:inline-flex;line-height:0}
+.site-footer .footer-brand img{display:block;width:115px;height:auto;filter:brightness(0) invert(1)}
+.site-footer .footer-brand-block p{max-width:260px;margin:0;color:#a0a0a0;font-size:15px;line-height:1.65}
+.site-footer .footer-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.site-footer .footer-nav div{display:flex;flex-direction:column;align-items:flex-start;gap:13px}
+.site-footer .footer-nav h2{margin:0 0 11px;color:#f2f2f2;font-size:14px;line-height:1.4;font-weight:500;letter-spacing:0}
+.site-footer .footer-nav a{color:#a8a8a8;font-size:14px;line-height:1.4;transition:color .2s ease}
+.site-footer .footer-nav a:hover,.site-footer .footer-bottom a:hover{color:#fff}
+.site-footer a:focus-visible{outline:2px solid #fff;outline-offset:4px}
+.site-footer .footer-bottom{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);align-items:start;gap:70px;min-height:0;padding:27px 0 42px;border-top:1px solid #292929;color:#a0a0a0}
+.site-footer .footer-copyright{font-size:13px;line-height:1.6;white-space:normal}
+.site-footer .footer-bottom .footer-disclosure{display:block;max-width:630px;color:#999;font-size:12px;line-height:1.7}
+.site-footer .footer-disclosure p{margin:0 0 8px}.site-footer .footer-disclosure p:last-child{margin:0}
+.site-footer .footer-disclosure a{color:#bdbdbd;font-size:inherit;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:800px){
+ .m-home .d-close{padding:85px 0 90px}.m-home .d-close-inner{grid-template-columns:1fr;gap:34px}.m-home .d-close h2{font-size:clamp(44px,9vw,58px)}.m-home .d-close p{margin-bottom:24px;font-size:16px}
+ .site-footer .footer-main{grid-template-columns:1fr;gap:48px;padding:55px 0 60px}.site-footer .footer-bottom{grid-template-columns:1fr;gap:20px;padding:25px 0 38px}
+ .inner-page .closing-band .closing{padding:80px 0}
+}
+@media(max-width:700px){
+ .site-footer>.container,.inner-page .site-footer>.container{width:calc(100% - 32px)}
+ .site-footer .footer-main{gap:45px;padding:48px 0 52px}.site-footer .footer-brand-block{gap:18px}.site-footer .footer-nav{grid-template-columns:repeat(2,minmax(0,1fr));gap:38px 24px}.site-footer .footer-nav div{gap:12px}.site-footer .footer-nav h2{margin-bottom:8px}
+ .site-footer .footer-bottom{gap:18px;padding:24px 0 34px}.site-footer .footer-bottom .footer-disclosure{font-size:12px;line-height:1.7}
+}
+@media(prefers-reduced-motion:reduce){.m-home .d-close-button,.inner-page .closing-band .closing .button.primary,.site-footer .footer-nav a{transition:none}}
+.site-footer .footer-brand-block p{max-width:380px;color:#e5e5e5;font-size:clamp(24px,2.15vw,31px);line-height:1.22;letter-spacing:-.035em}
+@media(max-width:700px){.site-footer .footer-brand-block p{font-size:25px;line-height:1.25}}
+
+/* Give the closing action its own dark surface before the footer navigation. */
+.inner-page .closing-band{background:#fafafa;color:#fff;padding:80px 0}
+.inner-page .closing-band .closing{width:min(1200px,calc(100% - 48px));padding:clamp(48px,6vw,80px);background:#141414;border-radius:10px}
+.inner-page .closing-band .closing-copy{column-gap:clamp(48px,7vw,100px)}
+.inner-page .closing-band .closing h2{font-size:clamp(40px,4vw,56px)}
+@media(max-width:800px){.inner-page .closing-band{padding:64px 0}.inner-page .closing-band .closing{padding:48px 32px}}
+@media(max-width:700px){.inner-page .closing-band{padding:48px 0}.inner-page .closing-band .closing{width:calc(100% - 32px);padding:38px 26px}.inner-page .closing-band .closing h2{font-size:clamp(34px,9vw,44px)}}

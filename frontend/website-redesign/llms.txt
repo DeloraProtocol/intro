@@ -1,0 +1,36 @@
+# Delora
+
+> Delora provides non-custodial infrastructure for moving and converting digital assets across supported networks. Businesses can integrate through an API, a customizable React widget, or an MCP server for AI tools.
+
+Delora does not hold users' digital assets or private keys. Transactions are authorized through the user's or business's wallet and may involve third-party services. Asset, network, and route availability depends on the transaction. Delora does not provide bank accounts or fiat conversion; those services require separate providers or partners.
+
+The Delora MCP server exposes read-only tools for discovery and quotes. It does not sign or broadcast transactions. A wallet or backend must sign and submit the unsigned transaction data returned by a quote.
+
+## Product
+
+- [Delora overview](https://delora.build/): Stablecoin infrastructure and supported business flows.
+- [Product](https://delora.build/product/): Stablecoin movement, integrations, and transaction control.
+- [Wallets](https://delora.build/use-cases/wallets/): Swaps and transfers within wallet applications.
+- [Neobanks](https://delora.build/use-cases/neobanks/): Stablecoin account funding, transfers, and conversions.
+- [Payments](https://delora.build/use-cases/payments/): Stablecoin payments, payouts, and conversion.
+- [Pricing](https://delora.build/pricing/): Pricing and integration options.
+
+## Developer resources
+
+- [Documentation index](https://docs.delora.build/llms.txt): Index of Delora documentation for agents and developers.
+- [Get started](https://docs.delora.build/about/get-started): API, React widget, and MCP integration paths.
+- [OpenAPI specification](https://docs.delora.build/api-reference/openapi-spec): Machine-readable API documentation and schemas.
+- [OpenAPI YAML](https://docs.delora.build/openapi.yaml): Public API specification in YAML.
+- [OpenAPI JSON](https://docs.delora.build/openapi.json): Public API specification in JSON.
+- [MCP server](https://docs.delora.build/mcp-server/overview): MCP capabilities, limitations, and connection instructions.
+- [React widget](https://docs.delora.build/widget/overview): Widget features, configuration, and integration.
+- [Rate limits and authentication](https://docs.delora.build/api-reference/rate-limits): API access and rate-limit details.
+- [Fee configuration](https://docs.delora.build/protocol/fee-configuration): Integrator attribution and fee settings.
+
+## Additional resources
+
+- [Partner portal](https://portal.delora.build/): Manage integrations and monitor supported transaction activity.
+- [System status](https://status.delora.build/): Service status.
+- [Contact the team](https://delora.build/book-demo/): Discuss an integration or business use case.
+- [Terms of Service](https://delora.build/terms-of-service): Service terms.
+- [Privacy Notice](https://delora.build/privacy-notice): Privacy information.

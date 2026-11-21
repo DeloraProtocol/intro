@@ -1,0 +1,9 @@
+/* Pin the product scene while the scroll progresses through its three states. */
+@media(min-width:901px) and (hover:hover) and (prefers-reduced-motion:no-preference){
+ .journeys.is-pinned .journeys-stage{position:relative}
+ .journeys.is-pinned .journeys-layout{position:sticky;top:var(--journey-pin-top,120px)}
+ .journeys.is-pinned .journeys-nav{position:static;top:auto}
+ .journeys.is-pinned .journeys-list{display:grid;gap:0;align-items:start}
+ .journeys.is-pinned .journey,.journeys.is-pinned .journey.journey-scroll-active{grid-area:1/1;min-width:0;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(14px);transition:opacity .35s ease,transform .45s cubic-bezier(.22,1,.36,1),visibility 0s linear .45s;will-change:opacity,transform}
+ .journeys.is-pinned .journey.is-current,.journeys.is-pinned .journey.is-current.journey-scroll-active{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0);transition:opacity .35s ease,transform .45s cubic-bezier(.22,1,.36,1),visibility 0s}
+}
