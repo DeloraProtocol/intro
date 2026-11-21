@@ -115,3 +115,15 @@ body:has(.contact-page){padding-top:0}.contact-page{background:#f7f7f7}.contact-
 .contact-layout .contact-fields:has(.contact-verification:not([hidden])) + .contact-submit { margin-top:0; }
 
 .contact-send-note:empty { display:none; }
+
+/* The confirmation means the request was accepted, not that every recipient has received it. */
+.inner-page .contact-layout .contact-submit[data-state="success"],
+.inner-page .contact-layout .contact-submit[data-state="success"]:hover { background:#176a50; color:#fff; opacity:1; }
+.inner-page .contact-layout .contact-submit[data-state="error"],
+.inner-page .contact-layout .contact-submit[data-state="error"]:hover { background:#a33737; color:#fff; opacity:1; }
+.contact-layout .contact-submit[data-state="success"]::before,
+.contact-layout .contact-submit[data-state="error"]::before { display:inline-flex; align-items:center; justify-content:center; width:20px; height:20px; margin-right:8px; border:1px solid currentColor; border-radius:50%; font-size:13px; line-height:1; animation:contact-status-in .3s ease-out both; }
+.contact-layout .contact-submit[data-state="success"]::before { content:'✓'; }
+.contact-layout .contact-submit[data-state="error"]::before { content:'!'; }
+@keyframes contact-status-in { from { opacity:0; transform:scale(.8); } to { opacity:1; transform:scale(1); } }
+@media(prefers-reduced-motion:reduce) { .contact-layout .contact-submit[data-state]::before { animation:none; } }

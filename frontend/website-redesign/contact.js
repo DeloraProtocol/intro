@@ -4,6 +4,9 @@
  const submit = form.querySelector('.contact-submit');
  const note = form.querySelector('.contact-send-note');
  const result = form.querySelector('#contact-result');
+ const clearButtonState = () => { if (submit.dataset.state === 'success' || submit.dataset.state === 'error') { submit.dataset.state = ''; submit.textContent = 'Send message'; } };
+ form.addEventListener('input', clearButtonState);
+ form.addEventListener('change', clearButtonState);
  const captchaArea = form.querySelector('#contact-verification');
  const captchaError = form.querySelector('#contact-captcha-error');
  const endpoint = form.dataset.formspreeEndpoint.trim();
@@ -68,6 +71,7 @@
   clearError();
   data.set('g-recaptcha-response', token);
   submit.disabled = true;
+  submit.dataset.state = 'sending';
   submit.textContent = 'Sending…';
   result.hidden = true;
   try {
@@ -77,13 +81,15 @@
    window.grecaptcha.reset(widgetId);
    result.textContent = 'Thanks for getting in touch. We’ll be in touch soon.';
    result.hidden = false;
+   submit.dataset.state = 'success';
   } catch {
    window.grecaptcha.reset(widgetId);
    result.textContent = 'Your message could not be sent. Please try again or email team@delora.build.';
    result.hidden = false;
+   submit.dataset.state = 'error';
   } finally {
    submit.disabled = false;
-   submit.textContent = 'Send message';
+   submit.textContent = submit.dataset.state === 'success' ? 'Sent' : 'Try again';
   }
  });
 })();
