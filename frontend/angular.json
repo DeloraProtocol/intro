@@ -33,7 +33,7 @@
             ],
             "styles": [
               "src/styles.scss",
-							"src/reset.scss"
+              "src/reset.scss"
             ],
             "scripts": []
           },
@@ -51,7 +51,28 @@
                   "maximumError": "512kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "index": "website-redesign/index.html",
+              "browser": "src/website-redesign-main.ts",
+              "polyfills": [],
+              "styles": [],
+              "assets": [
+                {
+                  "glob": "**/*",
+                  "input": "website-redesign",
+                  "ignore": [
+                    "/index.html"
+                  ]
+                }
+              ],
+              "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": false
+                },
+                "fonts": false
+              }
             },
             "development": {
               "optimization": false,
@@ -93,7 +114,7 @@
             ],
             "styles": [
               "src/styles.scss",
-							"src/reset.scss"
+              "src/reset.scss"
             ],
             "scripts": []
           }
