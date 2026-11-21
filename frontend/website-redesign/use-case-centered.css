@@ -13,6 +13,6 @@
 }
 /* Give the introduction a full first viewport on laptop and desktop screens. */
 @media(min-width:701px){
- .uc2-page .uc2-hero{min-height:calc(100svh - 84px);display:flex;align-items:center;padding:clamp(48px,7vh,96px) 24px}
+ .uc2-page .uc2-hero{min-height:calc(100vh - 84px);min-height:calc(100svh - 84px);display:flex;align-items:center;padding:clamp(48px,7vh,96px) 24px}
  .uc2-page .uc2-hero-inner{width:100%}
 }

@@ -32,5 +32,5 @@ The Delora MCP server exposes read-only tools for discovery and quotes. It does 
 - [Partner portal](https://portal.delora.build/): Manage integrations and monitor supported transaction activity.
 - [System status](https://status.delora.build/): Service status.
 - [Contact the team](https://delora.build/book-demo/): Discuss an integration or business use case.
-- [Terms of Service](https://delora.build/terms-of-service): Service terms.
-- [Privacy Notice](https://delora.build/privacy-notice): Privacy information.
+- [Terms of Service](https://delora.build/terms-of-service/): Service terms.
+- [Privacy Notice](https://delora.build/privacy-notice/): Privacy information.

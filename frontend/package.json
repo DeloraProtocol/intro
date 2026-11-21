@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && node tools/prerender-seo.mjs",
+    "build": "ng build --configuration=production",
     "prerender:seo": "node tools/prerender-seo.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
