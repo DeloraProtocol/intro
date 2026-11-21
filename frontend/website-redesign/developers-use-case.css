@@ -1,0 +1,11 @@
+.developer-benefit-link{display:inline-block;margin-top:20px;color:#171717;font-size:14px;line-height:1.4;text-decoration:none}.developer-benefit-link:hover{text-decoration:underline;text-underline-offset:4px}.developer-benefit-link:focus-visible{outline:2px solid #171717;outline-offset:4px}
+/* Match the homepage's six-card component. */
+.developer-benefits .uc2-benefit-grid{gap:8px}
+.developer-benefits .uc2-benefit-grid article{min-height:310px;padding:30px;border-radius:12px;background:#f7f7f7;display:flex;flex-direction:column;align-items:flex-start}
+.developer-benefits .uc2-icon{margin-bottom:39px;width:26px;height:26px}
+.developer-benefits .uc2-benefit-grid h3{font-size:22px;line-height:1.3;letter-spacing:-.02em}
+.developer-benefits .uc2-benefit-grid p{font-size:16px;line-height:1.5;color:#636363;margin-top:8px}
+.developer-benefits .developer-benefit-link{margin-top:auto;padding-top:20px}
+@media (min-width:601px) and (max-width:800px){.developer-benefits .uc2-benefit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.developer-benefits .uc2-benefit-grid{grid-template-columns:1fr}.developer-benefits .uc2-benefit-grid article{min-height:210px;padding:24px}.developer-benefits .uc2-icon{margin-bottom:24px}}
+#integrations,#workflow,#faq{scroll-margin-top:105px}

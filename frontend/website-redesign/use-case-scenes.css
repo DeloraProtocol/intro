@@ -1,0 +1,23 @@
+/* Shared visual language, with product context for each use case. */
+.uc2-visual-wallets{background:radial-gradient(ellipse at 24% 34%,#7bcf9c 0,transparent 58%),linear-gradient(130deg,#bcebcf 0%,#a4dfb9 62%,#d4f2df 100%)}
+.uc2-visual-neobanks{background:radial-gradient(ellipse at 80% 25%,#90d8ae 0,transparent 58%),linear-gradient(135deg,#d0efda,#a6dfba 68%,#c9ebd5)}
+.uc2-visual-payments{background:radial-gradient(ellipse at 20% 70%,#83d0a3 0,transparent 58%),linear-gradient(125deg,#c9eed7,#a7dfbd 65%,#d4f0dc)}
+.uc2-visual-wallets .pv-buy-phone{z-index:2;margin-left:-24%;flex:none}
+.wallet-activity{position:absolute;left:44%;top:24%;width:47%;max-width:300px;background:#fff;border:1px solid rgba(222,232,225,.9);border-radius:14px;padding:22px;box-shadow:0 22px 50px rgba(34,86,53,.12);color:#171717;font-size:12px}
+.wallet-activity-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:22px}
+.wallet-activity-header span:not(.wallet-activity-menu){display:block;color:#819088;font-size:10px;margin-bottom:5px}
+.wallet-activity-header strong{font-size:16px;font-weight:550}.wallet-activity-menu{font-size:18px;color:#7c8a82;line-height:1}
+.wallet-activity-row{display:flex;align-items:center;gap:9px;padding:13px 0;border-top:1px solid #eeeeee}
+.wallet-activity-row img{width:24px;height:24px;flex:none}.wallet-activity-row>span{min-width:0}.wallet-activity-row strong,.wallet-activity-row small{display:block}.wallet-activity-row strong{font-size:11px;font-weight:550}.wallet-activity-row small{font-size:10px;color:#8b9690;margin-top:3px}.wallet-activity-row b{margin-left:auto;font-size:10px;font-weight:500;white-space:nowrap;font-variant-numeric:tabular-nums}
+@media(max-width:700px){.uc2-visual-wallets .pv-buy-phone{margin-left:-25%;width:180px;height:370px}.wallet-activity{left:42%;top:25%;width:53%;padding:15px 12px}.wallet-activity-header{margin-bottom:14px}.wallet-activity-row{gap:6px;padding:11px 0}.wallet-activity-row img{width:20px;height:20px}.wallet-activity-row b{font-size:9px}.wallet-activity-row strong{font-size:10px}.wallet-activity-row small{font-size:9px}.uc2-visual-wallets .pv-buy-keyboard>span{min-height:20px}.uc2-visual-wallets .pv-buy-amount{font-size:38px}}
+/* Keep the activity content readable beside the device. */
+.uc2-visual-wallets .pv-buy-phone{margin-left:-34%}
+.wallet-activity{left:52%;width:44%}
+@media(max-width:700px){.uc2-visual-wallets .pv-buy-phone{margin-left:-40%;width:170px}.wallet-activity{left:50%;width:46%;padding-left:28px}.wallet-activity-row img{display:none}.wallet-activity-row{gap:3px}.wallet-activity-row b{font-size:8px}}
+.wallet-token-pair{position:relative;display:block;flex:0 0 33px;height:28px}
+.wallet-activity-row .wallet-token-pair img{position:absolute;width:22px;height:22px;border-radius:50%;border:1.5px solid #fff}
+.wallet-token-pair img:first-child{left:0;top:0}.wallet-token-pair img:last-child{left:11px;top:7px}
+.wallet-activity-row .wallet-activity-copy{flex:1}.wallet-activity-copy strong{white-space:nowrap}
+@media(max-width:700px){.wallet-activity-row .wallet-token-pair{flex-basis:23px;height:23px}.wallet-activity-row .wallet-token-pair img{display:block;width:16px;height:16px}.wallet-token-pair img:last-child{left:7px;top:6px}.wallet-activity-row .wallet-activity-copy strong{font-size:8px}.wallet-activity-row b{font-size:8px}}
+.wallet-activity-copy strong,.wallet-activity-copy small{line-height:1.2}
+.wallet-activity-row .wallet-activity-copy small{margin-top:2px}

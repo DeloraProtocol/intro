@@ -1,0 +1,28 @@
+/* Focused additions for the product and trust narrative. */
+.hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:20px}
+.hero-actions .m-button{display:inline-flex;align-items:center;gap:20px}
+.hero-contact{color:#323232;font-size:14px;text-decoration:none;border-bottom:1px solid #b9b9b9;padding:10px 0}
+.hero-contact:hover{text-decoration:none;color:#000;border-color:#111}
+.built-delora{min-height:0;padding-top:100px;padding-bottom:100px}
+.performance-grid p a{display:inline-block;margin-top:6px;font-size:13px;color:#515151;text-decoration:underline;text-underline-offset:3px}
+.suite-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.suite-card p,.suite-intro p,.journey-copy p,.journeys-heading p{color:#636363}
+@media(max-width:900px){
+ .performance-grid article:nth-child(odd){padding-left:24px}
+ .built-delora{padding-top:75px;padding-bottom:75px}
+ .suite-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .journey-image.still-scene{aspect-ratio:1.4}
+ .still-scene .unified-wallet,.real-move.still-scene .unified-wallet,.real-swap.still-scene .unified-wallet{left:50%;top:50%;transform:translate(-50%,-50%);width:91%;height:85%}
+ .still-scene .unified-field .unified-label{font-size:max(8px,2.1cqw);color:#73777b}
+ .real-swap.still-scene .unified-sub,.real-move.still-scene .unified-sub,.still-scene .unified-sub{font-size:max(8px,2.1cqw);color:#777b80}
+ .still-scene .unified-sub span:last-child{color:#8a8d94}
+ .still-scene .unified-fee{font-size:max(9px,2.3cqw)}
+ .still-scene .ref-asset{font-size:max(10px,2.8cqw)}
+ .still-scene .unified-top>strong{font-size:max(17px,4.5cqw)}
+ .still-scene .unified-top>strong.unified-address{font-size:max(9px,2.4cqw)}
+ .still-scene .unified-switch{font-size:max(9px,2.5cqw)}
+}
+@media(max-width:800px){.suite-grid{grid-template-columns:1fr}}
+@media(max-width:400px){.hero-actions{gap:12px}.hero-contact{font-size:13px}}
+
+@media(min-width:601px) and (max-width:800px){.suite-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}

@@ -1,0 +1,3 @@
+img[src*="favicon.svg"]{filter:grayscale(1)}
+/* Primary actions and footer use deep neutral ink for contrast. */
+.site-footer{background:#242424}.nav-actions .nav-cta,.cases-primary,.built-delora a,.button.primary{background:#252525;color:#fff}.nav-actions .nav-cta:hover,.cases-primary:hover,.built-delora a:hover,.button.primary:hover{background:#444}

@@ -1,0 +1,28 @@
+/* The wallet preview reuses the phone from the product introduction. */
+.uc2-visual-wallets .pv-buy-phone{position:relative;width:230px;height:460px;max-width:100%;border:6px solid rgba(255,255,255,.72);border-radius:24px;background:#fff;box-shadow:0 14px 40px rgba(30,74,41,.18);overflow:hidden;display:flex;flex-direction:column;color:#111;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif}
+.uc2-visual-wallets .pv-buy-status{display:flex;justify-content:space-between;align-items:center;padding:10px 9% 4px;font-size:11px;font-weight:500;line-height:1}
+.uc2-visual-wallets .pv-buy-status b{font-weight:500}
+.uc2-visual-wallets .pv-phone-indicators{display:flex;align-items:center;gap:3px;color:#000}
+.uc2-visual-wallets .pv-phone-indicators .pv-cellular{width:12.7px;height:9px}
+.uc2-visual-wallets .pv-phone-indicators .pv-wifi{width:11.2px;height:8px;fill:currentColor}
+.uc2-visual-wallets .pv-battery{position:relative;display:flex;align-items:center;justify-content:center;width:16.7px;height:9px;border-radius:3.5px;background:#111;color:#fff;font-size:6px;font-weight:600;line-height:1}
+.uc2-visual-wallets .pv-battery:after{content:"";position:absolute;right:-1.6px;top:3px;width:1.1px;height:3px;background:#999}
+.uc2-visual-wallets .pv-buy-address{display:flex;justify-content:center;align-items:center;gap:4px;height:20px;border-bottom:1px solid #f0f0f0;font-size:9px;line-height:1}
+.uc2-visual-wallets .pv-buy-address svg{width:8px;height:10px;flex:none;fill:#111;stroke:#111;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.uc2-visual-wallets .pv-buy-address svg path{fill:none}
+.uc2-visual-wallets .pv-buy-address svg rect{fill:#111;stroke:#111}
+.uc2-visual-wallets .pv-buy-title{display:flex;justify-content:center;align-items:center;gap:6px;margin-top:8%;font-size:14px}
+.uc2-visual-wallets .pv-buy-title img,.uc2-visual-wallets .pv-buy-method img{width:1.2em;height:1.2em}
+.uc2-visual-wallets .pv-buy-amount{display:flex;justify-content:center;align-items:baseline;margin-top:16%;font-size:48px;font-weight:600;line-height:1}
+.uc2-visual-wallets .pv-buy-amount>span{font-size:.32em;align-self:baseline;margin:0 .12em 0 0}
+.uc2-visual-wallets .pv-buy-amount i{width:2px;height:.85em;background:#218c55}
+.uc2-visual-wallets .pv-buy-presets{display:flex;justify-content:center;gap:5px;margin-top:6%;font-size:9px}
+.uc2-visual-wallets .pv-buy-presets span{border:1px solid #e6e6e6;border-radius:5px;padding:3px 6px}
+.uc2-visual-wallets .pv-buy-method{display:flex;align-items:center;justify-content:center;gap:4px;margin-top:auto;margin-bottom:6%;color:#27885a;font-size:10px}
+.uc2-visual-wallets .pv-buy-continue{margin:0 6% 5%;padding:8px;text-align:center;background:#181818;border-radius:5px;color:#fff;font-size:10px}
+.uc2-visual-wallets .pv-buy-keyboard{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:3px 4px 10%;background:#f4f4f4;text-align:center}
+.uc2-visual-wallets .pv-buy-keyboard>span{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:26px;border-radius:4px;background:#fff;box-shadow:0 1px 1px #0002;font-size:16px;line-height:1}
+.uc2-visual-wallets .pv-buy-keyboard small{font-size:6px;letter-spacing:.08em}
+.uc2-visual-wallets .pv-buy-keyboard .pv-key-blank,.uc2-visual-wallets .pv-buy-keyboard .pv-key-delete{background:transparent;box-shadow:none}
+.uc2-visual-wallets .pv-buy-home{position:absolute;bottom:2%;left:32%;width:36%;height:3px;border-radius:9px;background:#111}
+@media(max-width:700px){.uc2-visual-wallets .pv-buy-phone{width:200px;height:400px}.uc2-visual-wallets .pv-buy-amount{font-size:42px}.uc2-visual-wallets .pv-buy-keyboard>span{min-height:22px;font-size:14px}}

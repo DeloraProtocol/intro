@@ -1,0 +1,6 @@
+/* Keep native scrolling; ease only small, non-interactive section headings. */
+.home-reveal-ready{opacity:0;transform:translateY(8px);transition:opacity 300ms cubic-bezier(.22,1,.36,1),transform 300ms cubic-bezier(.22,1,.36,1)}
+.home-reveal-ready.home-reveal-visible{opacity:1;transform:none}
+#faq{scroll-margin-top:96px}
+@media(max-width:700px){html{scroll-behavior:auto}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.home-reveal-ready{opacity:1;transform:none;transition:none}}

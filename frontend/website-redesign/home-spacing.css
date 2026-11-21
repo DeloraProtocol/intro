@@ -1,0 +1,19 @@
+/* Make the main page sections breathe and match the use-case metrics. */
+.m-home .flows-home{padding-bottom:90px}
+.m-home .performance{padding:32px 24px 105px;background:#fff}
+.m-home .performance-grid{max-width:1392px;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.m-home .performance-grid article,.m-home .performance-grid article:first-child,.m-home .performance-grid article:last-child{height:auto;min-height:190px;padding:26px;border:0;border-radius:12px;background:#f5f5f5;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:28px;text-align:left}
+.m-home .performance-grid strong{font-size:clamp(32px,3vw,42px);line-height:1;font-weight:400;letter-spacing:-.04em}
+.m-home .performance-grid .performance-detail p{text-align:left;color:#5e5e5e;font-size:14px;line-height:1.4}
+.m-home .delora-suite{padding-top:105px;padding-bottom:100px}
+.m-home .faq-section{padding-top:100px}
+@media(max-width:700px){
+ .m-home .flows-home{padding-bottom:70px}
+ .m-home .performance{padding:24px 20px 85px}
+ .m-home .performance-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .m-home .performance-grid article,.m-home .performance-grid article:first-child,.m-home .performance-grid article:last-child{min-height:145px;padding:20px 18px}
+ .m-home .performance-grid strong{font-size:clamp(27px,7vw,34px)}
+ .m-home .performance-grid .performance-detail p{font-size:13px}
+ .m-home .delora-suite{padding-top:80px;padding-bottom:75px}
+ .m-home .faq-section{padding-top:75px}
+}

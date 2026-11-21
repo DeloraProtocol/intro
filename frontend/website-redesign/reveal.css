@@ -1,0 +1,1 @@
+.reveal-ready{opacity:0;transform:translateY(18px);transition:opacity 650ms cubic-bezier(.22,1,.36,1),transform 650ms cubic-bezier(.22,1,.36,1)}.reveal-ready.reveal-visible{opacity:1;transform:translateY(0)}@media(prefers-reduced-motion:reduce){.reveal-ready{opacity:1;transform:none;transition:none}}

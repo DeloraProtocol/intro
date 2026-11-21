@@ -1,0 +1,60 @@
+.performance{padding:0 24px 95px;background:#fff}.performance-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8}.performance-grid article{padding:32px 28px 34px;border-right:1px solid #e8e8e8}.performance-grid article:first-child{padding-left:0}.performance-grid article:last-child{border-right:0}.performance-grid strong{display:block;font-size:42px;line-height:1.1;letter-spacing:-.045em;font-weight:400;font-variant-numeric:tabular-nums;white-space:nowrap;color:#121212}.performance-grid p{font-size:14px;line-height:1.5;color:#777;margin:12px 0 0}.perf-unit,.perf-separator,.perf-prefix{font-weight:400}.journeys-nav a{display:flex;align-items:center;gap:10px}.journeys-nav a svg{width:17px;height:17px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}.journeys-nav a:before,.journeys-nav a.is-active:before{display:none!important}@media(max-width:900px){.performance{padding:0 20px 65px}.performance-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.performance-grid article{padding:22px 16px;border-bottom:1px solid #e8e8e8}.performance-grid article:nth-child(odd){padding-left:20px}.performance-grid article:nth-child(even){border-right:0}.performance-grid article:nth-child(n+3){border-bottom:0}.performance-grid strong{font-size:34px}.journeys-nav a{gap:6px}.journeys-nav a svg{width:16px;height:16px}}
+.performance-grid{border:0;gap:8px}.performance-grid article,.performance-grid article:first-child,.performance-grid article:last-child{min-height:190px;padding:30px;border:0;border-radius:12px;background:#f7f7f7}.performance-grid strong{font-size:42px}.performance-grid p{margin-top:14px}@media(max-width:900px){.performance-grid article,.performance-grid article:first-child,.performance-grid article:last-child{min-height:140px;padding:20px;border:0}.performance-grid strong{font-size:34px}}
+/* Utila reference: 214px cards, 24px insets, metric above a bottom-aligned label. */
+.performance-grid{max-width:1232px}.performance-grid article,.performance-grid article:first-child,.performance-grid article:last-child{height:214px;min-height:0;padding:24px;display:flex;flex-direction:column;justify-content:space-between}.performance-grid strong{font-size:32px;line-height:1;letter-spacing:-.01em}.performance-grid p{font-size:16px;line-height:24px;margin:0;color:#666}@media(max-width:900px){.performance-grid{grid-template-columns:1fr}.performance-grid article,.performance-grid article:first-child,.performance-grid article:last-child{height:90px;min-height:0;padding:20px 24px;flex-direction:row;align-items:flex-start;gap:16px}.performance-grid strong{font-size:32px}.performance-grid p{text-align:right;font-size:16px;max-width:55%}}
+@media(max-width:900px){.performance{padding-left:0;padding-right:0}}
+
+/* Align the proof cards with the hero, then leave space before the globe. */
+.performance{padding:0 24px 96px}
+.performance-grid{max-width:1200px}
+@media(max-width:900px){.performance{padding:0 20px 64px}}
+/* Keep the introduction and proof cards on one visual grid. */
+@media(min-width:701px){
+ .m-hero{padding-top:clamp(125px,10vw,160px);padding-bottom:72px}
+ .m-hero-copy{justify-content:flex-start;gap:26px}
+ .m-hero-copy .m-progress{display:none}
+ .m-hero h1{font-size:clamp(45px,4.45vw,64px)}
+}
+.performance-grid article,.performance-grid article:first-child,.performance-grid article:last-child{height:190px;padding:24px;align-items:stretch;flex-direction:column;justify-content:space-between;gap:0}
+.performance-grid strong{font-size:36px;line-height:1;letter-spacing:-.025em}
+.performance-detail{min-height:47px;text-align:left}
+.performance-grid .performance-detail p{margin:0;color:#666;font-size:15px;line-height:22px;text-align:left;max-width:none}
+.performance-grid .performance-detail a{display:inline-block;margin-top:4px;color:#515151;font-size:13px;line-height:20px;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:700px){
+ .m-hero{padding-bottom:48px}
+ .m-hero-copy .m-progress{display:none}
+ .performance-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .performance-grid article,.performance-grid article:first-child,.performance-grid article:last-child{height:156px;padding:18px 16px;min-width:0}
+ .performance-grid article:nth-child(odd){padding-left:16px}
+ .performance-grid strong{font-size:clamp(24px,7vw,31px)}
+ .performance-detail{min-height:56px}
+ .performance-grid .performance-detail p{font-size:13px;line-height:18px}
+ .performance-grid .performance-detail a{font-size:12px;line-height:17px}
+}
+.m-hero-copy .hero-actions{margin-top:4px;justify-content:flex-start;flex-direction:row;align-items:center}
+@media(min-width:701px) and (max-width:900px){.performance-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* The hero and the figures form one complete first screen on laptop displays. */
+@media(min-width:901px){
+ .intro-proof{display:flex;flex-direction:column;min-height:calc(100svh - 84px)}
+ .intro-proof .m-hero{flex:1 0 auto;display:flex;align-items:center;padding:clamp(48px,7vh,100px) 0 clamp(35px,5vh,65px)}
+ .intro-proof .performance{flex:none;padding-bottom:clamp(48px,7vh,96px)}
+ .intro-proof .performance-grid{width:100%}
+ .intro-proof .performance-grid article{height:clamp(156px,20vh,190px)}
+}
+/* Metric cards follow the dimensions and type hierarchy of the reference. */
+.performance-grid article,.performance-grid article:first-child,.performance-grid article:last-child{height:214px;padding:24px;border-radius:12px;background:#f5f5f5}
+.performance-grid strong{font-size:32px;line-height:1.1;font-weight:400;letter-spacing:-.04em}
+.performance-detail{min-height:0}
+.performance-grid .performance-detail p{font-size:16px;line-height:24px;color:#575757}
+@media(min-width:901px){
+ .intro-proof .performance{padding-left:14px;padding-right:14px}
+ .intro-proof .performance-grid{max-width:1400px}
+ .intro-proof .performance-grid article{height:214px}
+}
+@media(max-width:700px){
+ .performance-grid article,.performance-grid article:first-child,.performance-grid article:last-child{height:156px;padding:18px 16px}
+ .performance-grid article:nth-child(odd){padding-left:16px}
+ .performance-grid strong{font-size:clamp(24px,7vw,31px)}
+ .performance-grid .performance-detail p{font-size:13px;line-height:18px}
+}
+@media(max-width:700px){.performance .performance-grid article:nth-child(odd){padding-left:16px}}

@@ -1,0 +1,52 @@
+/* Shared refinements: preserve the same footer grid and readable links site-wide. */
+.site-footer .footer-nav { grid-template-columns:repeat(4,minmax(0,1fr)); gap:clamp(16px,2.3vw,32px); }
+.site-footer .footer-nav > div { min-width:0; }
+.site-footer .footer-nav a { overflow-wrap:anywhere; }
+@media (max-width:800px) { .site-footer .footer-nav { grid-template-columns:repeat(4,minmax(0,1fr)); } }
+@media (max-width:700px) { .site-footer .footer-nav { grid-template-columns:repeat(2,minmax(0,1fr)); gap:38px 24px; } }
+.faq-answer a, .document-body a { text-decoration-skip-ink:none; text-underline-offset:.16em; }
+.faq-section.faq-motion-ready .faq-list summary span::after { transition:transform 140ms cubic-bezier(.22,1,.36,1); }
+.faq-section.faq-motion-ready .faq-list details[data-expanded="false"] summary span::after { transform:rotate(90deg); }
+.faq-section.faq-motion-ready .faq-list details[data-expanded="true"] summary span::after { transform:rotate(0); }
+/* Keep the Enterprise values on the same dark surface as the plan heading. */
+.pricing-table thead th, .pricing-table thead th:first-child, .pricing-table thead th:not(:first-child), .pricing-table thead th:last-child { height:84px; padding-block:18px; }
+.pricing-table tbody td:last-child { background:#171717; color:#f5f5f5; border-color:#383838; }
+.pricing-table tbody td:last-child .compare-included { color:#f5f5f5; }
+@media(max-width:700px) { .pricing-table thead th, .pricing-table thead th:first-child, .pricing-table thead th:not(:first-child), .pricing-table thead th:last-child { height:76px; padding-block:14px; } }
+/* A subtle shade change keeps dark actions dark on hover. */
+.header .nav-cta:hover, .pricing-action-dark:hover, .pv-button:hover, .uc2-button:hover,
+.inner-page :is(.cases-primary,.dev-button-primary,.price-cta-primary,.contact-submit):hover,
+.hero-actions .primary:hover, .built-delora a:hover { background:#252525; color:#fff; }
+@media(prefers-reduced-motion:no-preference) { html.footer-navigating body { opacity:0; transition:opacity 140ms ease-in; } }
+@media(prefers-reduced-motion:reduce) { .faq-section.faq-motion-ready .faq-list summary span::after { transition:none; } }
+/* The same footer layout also applies on legal pages. */
+.site-footer .footer-main { grid-template-columns:minmax(220px,.9fr) minmax(0,2fr); gap:60px; padding:76px 0 92px; border-top:0; }
+.site-footer .footer-brand-block { gap:18px; }
+.site-footer .footer-brand-block p { font-size:18px; line-height:1.45; letter-spacing:0; margin-top:6px; }
+.site-footer .footer-copyright { color:#999; }
+.site-footer .footer-nav a { color:#b9b9b9; text-decoration:none; min-height:24px; }
+.site-footer .footer-bottom { display:flex; flex-direction:column; gap:18px; border:0; padding:0 0 52px; }
+.site-footer .footer-legal { display:flex; gap:22px; }
+.site-footer .footer-legal a { color:#bbb; font-size:14px; text-decoration:none; }
+.site-footer .footer-bottom .footer-disclosure { max-width:900px; color:#aaa; font-size:13px; line-height:1.65; }
+.pricing-table .pricing-category th { background:linear-gradient(to right,#ebebeb 70%,#171717 70%); }
+@media(max-width:1000px) { .site-footer .footer-main { grid-template-columns:1fr; gap:45px; } }
+@media(max-width:700px) {
+ .site-footer .footer-main { padding:52px 0 60px; gap:40px; }
+ .site-footer .footer-bottom { padding-bottom:38px; }
+ .pricing-table .pricing-category th { background:linear-gradient(to right,#ebebeb 69%,#171717 69%); }
+}
+/* Legal pages participate in the same native page transitions as marketing pages. */
+@view-transition { navigation:auto; }
+@media(prefers-reduced-motion:no-preference) {
+ ::view-transition-old(root) { animation:refine-page-out 160ms ease-in both; }
+ ::view-transition-new(root) { animation:refine-page-in 210ms ease-out both; }
+ @keyframes refine-page-out { to { opacity:0; } }
+ @keyframes refine-page-in { from { opacity:0; } }
+}
+@media(prefers-reduced-motion:reduce) { ::view-transition-old(root), ::view-transition-new(root) { animation:none!important; } }
+/* Category cells follow the same column boundaries as the rest of the table. */
+.pricing-table .pricing-category th { background:#ebebeb; border:0; }
+.pricing-table tbody .pricing-category td:last-child { background:#171717; border:0; padding:0; }
+.pricing-table tbody .pricing-category th[scope="row"] { padding:13px 28px; }
+@media(max-width:700px) { .pricing-table tbody .pricing-category th[scope="row"] { padding:12px 18px; } }
