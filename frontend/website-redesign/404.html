@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#ffffff">
+  <title>Page not found | Delora</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=3">
+  <style>
+    @font-face{font-family:Inter;src:url('/assets/inter-variable.ttf') format('truetype');font-weight:100 900;font-display:swap}
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;background:#fff;color:#171717}
+    body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+    .page{min-height:100vh;min-height:100svh;display:flex;flex-direction:column}
+    .header{height:84px;padding:12px 24px;display:flex;align-items:center}
+    .brand{display:inline-flex;align-items:center;line-height:0}
+    .brand img{display:block;width:115px;height:auto;filter:brightness(0)}
+    main{flex:1;display:flex;justify-content:center;align-items:center;padding:56px 24px 100px;text-align:center}
+    .content{max-width:660px}
+    h1{margin:0;font-size:clamp(44px,5.2vw,72px);font-weight:400;line-height:1.08;letter-spacing:-.045em}
+    p{max-width:470px;margin:26px auto 0;color:#6d6d6d;font-size:18px;line-height:1.55}
+    .actions{display:flex;justify-content:center;align-items:center;gap:28px;margin-top:36px;flex-wrap:wrap}
+    .primary{min-height:52px;display:inline-flex;justify-content:center;align-items:center;gap:32px;padding:14px 24px;border-radius:999px;background:#171717;color:#fff;text-decoration:none;font-size:15px;line-height:1.3;transition:background-color .2s}
+    .primary:hover{background:#383838}
+    .secondary{color:#171717;text-decoration:underline;text-underline-offset:5px;text-decoration-skip-ink:none;font-size:15px;line-height:1.5}
+    a:focus-visible{outline:2px solid #171717;outline-offset:5px}
+    .footer{padding:0 24px 24px;color:#777;font-size:13px;line-height:1.5}
+    @media(max-width:700px){.header{padding-inline:20px}.brand img{width:100px}main{padding:48px 20px 72px}h1{font-size:clamp(40px,10vw,52px)}p{font-size:16px;margin-top:22px}.actions{margin-top:32px;gap:20px}.footer{padding:0 20px 20px}}
+    @media(prefers-reduced-motion:reduce){.primary{transition:none}}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="header"><a class="brand" href="/" aria-label="Delora home"><img src="/assets/delora-logotype.svg" alt="Delora" width="115" height="23"></a></header>
+    <main id="main-content">
+      <div class="content">
+        <h1>Page not found.</h1>
+        <p>The page you’re looking for may have moved or no longer exists.</p>
+        <div class="actions">
+          <a class="primary" href="/">Back to home <span aria-hidden="true">↗</span></a>
+          <a class="secondary" href="https://docs.delora.build/about/get-started">Explore docs <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">© 2026 Delora Labs Inc.</footer>
+  </div>
+</body>
+</html>
