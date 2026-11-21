@@ -111,4 +111,4 @@ body:has(.contact-page){padding-top:0}.contact-page{background:#f7f7f7}.contact-
 .business-select fieldset label:focus-within { outline:1px solid #777; outline-offset:-1px; }
 .business-select summary svg { transition:transform 180ms ease; }
 @media(prefers-reduced-motion:reduce) { .business-select summary svg { transition:none; } }
-.contact-layout .contact-submit { margin-top:12px; }
+.contact-layout .contact-submit { margin-top:6px; }
