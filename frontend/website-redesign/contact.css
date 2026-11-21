@@ -113,3 +113,5 @@ body:has(.contact-page){padding-top:0}.contact-page{background:#f7f7f7}.contact-
 @media(prefers-reduced-motion:reduce) { .business-select summary svg { transition:none; } }
 .contact-layout .contact-submit { margin-top:8px; }
 .contact-layout .contact-fields:has(.contact-verification:not([hidden])) + .contact-submit { margin-top:0; }
+
+.contact-send-note:empty { display:none; }

@@ -6,7 +6,7 @@
  const say=message=>{result.textContent=message;result.hidden=false;};
  const requiredText=[form.querySelector('#contact-name'),form.querySelector('#contact-message')];
  requiredText.forEach(field=>field.addEventListener('input',()=>field.setCustomValidity('')));
- note.textContent='We’ll use your details to respond to your request.';button.textContent='Send message';button.disabled=true;
+ note.textContent='';button.textContent='Send message';button.disabled=true;
  window.deloraTurnstileReady=()=>{
   try {widgetId=window.turnstile.render(widget,{sitekey:form.dataset.turnstileSiteKey,action:'contact',appearance:'interaction-only',callback:value=>{token=value;button.disabled=false;error.hidden=true;retry.hidden=true;},'expired-callback':()=>{token='';button.disabled=true;error.textContent='Security check expired. Please try again.';error.hidden=false;retry.hidden=false;},'error-callback':()=>{token='';button.disabled=true;error.textContent='We couldn’t complete the security check. Please try again or email team@delora.build.';error.hidden=false;retry.hidden=false;}});}
   catch {say('Verification is unavailable. Please email team@delora.build.');}

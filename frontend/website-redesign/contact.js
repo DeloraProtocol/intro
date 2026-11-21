@@ -20,7 +20,7 @@
  if (partiallyConfigured) {
   note.textContent = 'The form is temporarily unavailable. Please email team@delora.build.';
  } else if (configured) {
-  note.textContent = 'We’ll use your details to respond to your request.';
+  note.textContent = '';
   submit.textContent = 'Send message';
   captchaArea.hidden = false;
   const script = document.createElement('script');
