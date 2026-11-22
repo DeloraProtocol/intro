@@ -1,53 +1,74 @@
 (() => {
- const fields = {chains: document.getElementById('home-chain-count'), uptime: document.getElementById('home-uptime'), pricingChains: document.getElementById('pricing-network-count')};
- if (!fields.chains && !fields.uptime && !fields.pricingChains) return;
- const key = 'delora-site-metrics-v2', hour = 60 * 60 * 1000;
- // A dedicated snapshot service can be configured after it is deployed. Until
- // then the bundled file keeps local previews and failed network requests safe.
- const configuredEndpoint = document.querySelector('meta[name="delora-metrics-endpoint"]')?.content;
- const endpoint = configuredEndpoint && /^https:\/\//.test(configuredEndpoint) ? configuredEndpoint : '/home-metrics.json';
- // Initial snapshot is used only if neither a saved nor a server snapshot is available.
- const fallback = {chains:{value:30,updatedAt:'2026-11-20T13:08:45.872686+00:00'},uptime:{value:100,updatedAt:'2026-11-20T13:08:45.872686+00:00',periodDays:90}};
- let saved; try { saved = JSON.parse(localStorage.getItem(key) || '{}'); } catch { saved = {}; }
- if (!saved || typeof saved !== 'object') saved = {};
- let metrics = {...fallback}, checkedAt = Number(saved.checkedAt) || 0, pending = false;
- function valid(item, kind) { return item && Number.isFinite(item.value) && item.value >= 0 && (kind !== 'chains' || Number.isInteger(item.value) && item.value > 0) && (kind !== 'uptime' || item.value <= 100 && Number.isInteger(item.periodDays) && item.periodDays > 0) && Number.isFinite(Date.parse(item.updatedAt)); }
- for (const kind of ['chains','uptime']) if (valid(saved.metrics?.[kind],kind) && Date.parse(saved.metrics[kind].updatedAt) >= Date.parse(metrics[kind].updatedAt)) metrics[kind] = saved.metrics[kind];
- function render() {
-  for (const kind of ['chains','uptime']) {
-   const item = metrics[kind]; if (!valid(item,kind)) continue;
-   const value = kind === 'uptime' ? `${item.value}%` : String(item.value);
-   for (const el of kind === 'chains' ? [fields.chains,fields.pricingChains] : [fields.uptime]) if (el) {
-    el.textContent = value; el.setAttribute('aria-label', value);
-    el.title = 'Last updated: ' + new Date(item.updatedAt).toLocaleString();
-   }
-   if (kind === 'uptime' && fields.uptime) {
-    const label = fields.uptime.closest('article')?.querySelector('.performance-detail p');
-    if (label) label.textContent = `Service uptime · ${item.periodDays} days`;
-   }
-   for (const el of kind === 'chains' ? [fields.chains,fields.pricingChains] : [fields.uptime]) if (el) {
-    const article = el.closest('article'); if (!article) continue;
-    let note = article.querySelector('.metric-as-of');
-    if (Date.now() - Date.parse(item.updatedAt) > 24 * hour) {
-     if (!note) { note = document.createElement('small'); note.className = 'metric-as-of'; article.append(note); }
-     note.textContent = 'As of ' + new Date(item.updatedAt).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
-    } else if (note) note.remove();
+ const fields = {
+  chains: [document.getElementById('home-chain-count'), document.getElementById('pricing-network-count')].filter(Boolean),
+  uptime: [document.getElementById('home-uptime')].filter(Boolean)
+ };
+ if (!fields.chains.length && !fields.uptime.length) return;
+
+ const day = 24 * 60 * 60 * 1000;
+ const key = 'delora-site-live-metrics-v1';
+ const urls = {chains:'https://api.delora.build/v1/chains', uptime:'https://status.delora.build/index.json'};
+ let state = {};
+ try { state = JSON.parse(localStorage.getItem(key) || '{}') || {}; } catch {}
+ const pending = {};
+ const valid = (kind, item) => item && Number.isFinite(item.value) && Number.isFinite(item.updatedAt) && item.updatedAt > 0 && item.updatedAt <= Date.now() &&
+  (kind === 'chains' ? Number.isInteger(item.value) && item.value > 0 : item.value >= 0 && item.value <= 1 && Number.isInteger(item.periodDays) && item.periodDays > 0);
+ function save() { try { localStorage.setItem(key, JSON.stringify(state)); } catch {} }
+ function render(kind) {
+  const item = state[kind]?.data;
+  const fresh = valid(kind, item) && Date.now() - item.updatedAt < day;
+  const value = fresh ? (kind === 'chains' ? String(item.value) : (item.value === 1 ? '100' : String(Math.floor(item.value * 100000) / 1000)) + '%') : null;
+  for (const el of fields[kind]) {
+   el.textContent = value || (el.id === 'pricing-network-count' ? 'Supported' : '—');
+   el.removeAttribute('title');
+   if (value) el.setAttribute('aria-label', value); else el.removeAttribute('aria-label');
+   const article = el.closest('article');
+   article?.querySelector('.metric-as-of')?.remove();
+   if (kind === 'uptime') {
+    const label = article?.querySelector('.performance-detail p');
+    if (label) label.textContent = fresh ? `API health uptime · ${item.periodDays} days` : 'API health uptime';
    }
   }
  }
- async function refresh() {
-  if (pending || Date.now() - checkedAt < hour) return;
-  pending = true; checkedAt = Date.now();
+ async function refresh(kind) {
+  if (!fields[kind].length || pending[kind]) return;
+  const lastAttempt = Number(state[kind]?.lastAttempt) || 0;
+  if (lastAttempt <= Date.now() && Date.now() - lastAttempt < day) { render(kind); return; }
+  state[kind] = {...state[kind], lastAttempt: Date.now()};
+  save();
+  pending[kind] = true;
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 10000);
   try {
-   const res = await fetch(endpoint, {cache:'no-cache'}); if (!res.ok) throw Error('unavailable');
-   const next = await res.json();
-   for (const kind of ['chains','uptime']) if (valid(next[kind],kind) && (!valid(metrics[kind],kind) || Date.parse(next[kind].updatedAt) >= Date.parse(metrics[kind].updatedAt))) metrics[kind] = next[kind];
-  } catch {} finally {
-   try { localStorage.setItem(key, JSON.stringify({metrics,checkedAt})); } catch {}
-   pending = false; render();
-  }
+   const response = await fetch(urls[kind], {cache:'no-store', signal:controller.signal});
+   if (!response.ok) throw new Error('Metric source unavailable');
+   const json = await response.json();
+   let data;
+   if (kind === 'chains') {
+    if (!Array.isArray(json.chains) || !json.chains.length || !json.chains.every(c => c && c.id != null && typeof c.chainType === 'string' && typeof c.mainnet === 'boolean')) throw new Error('Invalid chains');
+    const chains = json.chains.filter(c => c.mainnet);
+    data = {value:new Set(chains.map(c => `${c.chainType}:${c.id}`)).size, updatedAt:Date.now()};
+   } else {
+    const monitor = Array.isArray(json.included) && json.included.find(x => x.type === 'status_page_resource' && x.attributes?.public_name === 'api.delora.build/health');
+    const attributes = monitor?.attributes;
+    data = {value:attributes?.availability, periodDays:attributes?.status_history?.length, updatedAt:Date.now()};
+   }
+   if (!valid(kind, data)) throw new Error('Invalid metric');
+   state[kind].data = data;
+  } catch {} finally { clearTimeout(timeout); delete pending[kind]; save(); render(kind); }
  }
- window.addEventListener('storage', event => { if (event.key !== key || !event.newValue) return; try { const other = JSON.parse(event.newValue); for (const kind of ['chains','uptime']) if (valid(other.metrics?.[kind],kind) && Date.parse(other.metrics[kind].updatedAt) > Date.parse(metrics[kind]?.updatedAt || 0)) metrics[kind] = other.metrics[kind]; checkedAt = Math.max(checkedAt,Number(other.checkedAt)||0); render(); } catch {} });
- render(); refresh(); setInterval(() => { if (!document.hidden) refresh(); }, hour);
- document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); });
+ function refreshAll() { for (const kind of ['chains','uptime']) { render(kind); refresh(kind); } }
+ window.addEventListener('storage', event => {
+  if (event.key !== key || !event.newValue) return;
+  try {
+   const other = JSON.parse(event.newValue);
+   for (const kind of ['chains','uptime']) {
+    if (valid(kind, other?.[kind]?.data) && (!valid(kind, state[kind]?.data) || other[kind].data.updatedAt > state[kind].data.updatedAt)) state[kind] = other[kind];
+    render(kind);
+   }
+  } catch {}
+ });
+ refreshAll();
+ setInterval(() => { if (!document.hidden) refreshAll(); }, 15 * 60 * 1000);
+ document.addEventListener('visibilitychange', () => { if (!document.hidden) refreshAll(); });
 })();
